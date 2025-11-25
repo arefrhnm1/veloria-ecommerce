@@ -6,81 +6,30 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 // import required modules
-import ProductCard from "@/components/ProductCard";
+import ProductCard from "../../../components/ProductCard";
+import { AlignRight, ArrowRight, MoveRight } from "lucide-react";
 
-const data = [
-	{
-		id: 1,
-		title: "Aurora Linen Shirt",
-		img: "https://images.unsplash.com/photo-1681337150861-717596b6ffd4?q=80&w=1175&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-		price: 298,
-	},
-	{
-		id: 2,
-		title: "Velora Silk Blouse",
-		img: "https://images.unsplash.com/photo-1681337150861-717596b6ffd4?q=80&w=1175&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-		price: 699,
-	},
-	{
-    id: 3,
-		title: "Sera Classic Cotton Tee",
-		img: "https://images.unsplash.com/photo-1681337150861-717596b6ffd4?q=80&w=1175&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    price: 132,
-	},
-  {
-		id: 1,
-		title: "title 1",
-		img: "https://images.unsplash.com/photo-1681337150861-717596b6ffd4?q=80&w=1175&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-		price: 298,
-	},
-	{
-		id: 2,
-		title: "title 2",
-		img: "https://images.unsplash.com/photo-1681337150861-717596b6ffd4?q=80&w=1175&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-		price: 699,
-	},
-	{
-    id: 3,
-		title: "title 3",
-		img: "https://images.unsplash.com/photo-1681337150861-717596b6ffd4?q=80&w=1175&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    price: 132,
-	},
-  {
-		id: 1,
-		title: "title 1",
-		img: "https://images.unsplash.com/photo-1681337150861-717596b6ffd4?q=80&w=1175&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-		price: 298,
-	},
-	{
-		id: 2,
-		title: "title 2",
-		img: "https://images.unsplash.com/photo-1681337150861-717596b6ffd4?q=80&w=1175&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-		price: 699,
-	},
-	{
-    id: 3,
-		title: "title 3",
-		img: "https://images.unsplash.com/photo-1681337150861-717596b6ffd4?q=80&w=1175&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    price: 132,
-	},
-  
-];
+export default function ProductList({ products }) {
+	if (!products || !products.length) return <p>محصولی یافت نشد</p>;
 
-export default function ProductList() {
 	return (
-		<>
+		<div className="container mx-auto flex gap-5">
+			<h3 className="text-yellow-800/50 font-bold  text-3xl">
+				P<br />R<br />O<br />D<br />U<br />C<br />T<br />S<br />
+				<MoveRight size={50}/>
+			</h3>
 			<Swiper
 				slidesPerView={4}
 				spaceBetween={30}
 				centeredSlides={true}
-				className="w-full h-full"
+				className="w-full h-full "
 			>
-				{data.map((i) => (
-					<SwiperSlide key={i.id} className="w-[250px]!">
+				{products.map((i) => (
+					<SwiperSlide key={i.id} className="w-[250px]! ">
 						<ProductCard {...i} />
 					</SwiperSlide>
 				))}
 			</Swiper>
-		</>
+		</div>
 	);
 }

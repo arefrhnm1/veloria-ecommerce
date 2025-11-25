@@ -3,7 +3,7 @@ import ProductList from "@/components/home/productList/ProductList";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="bg-white mb-50 grid gap-20">
       <Header/>
       <ProductList/>
     </div>

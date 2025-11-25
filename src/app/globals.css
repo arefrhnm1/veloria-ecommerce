@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 /* Hide scrollbar for Chrome, Safari, Edge */
 ::-webkit-scrollbar {
   display: none;
@@ -10,3 +9,4 @@
 html {
   scrollbar-width: none;
 }
+

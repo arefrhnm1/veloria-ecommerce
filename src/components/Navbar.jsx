@@ -17,10 +17,9 @@ const links = [
 
 export default function Navbar() {
 	const pathname = usePathname();
-	console.log(pathname);
 
 	return (
-		<div className="border-b-2 shadow-xl border-yellow-700 py-8 ">
+		<div className="border-b-2 border-yellow-700 py-8 ">
 			<div className="container mx-auto flex justify-between items-baseline">
 				<h3 className="text-6xl font-bold text-yellow-700">VELORIA</h3>
 				<div className="flex gap-10">

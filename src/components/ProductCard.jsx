@@ -6,7 +6,7 @@ export default function ProductCard({image, title,price,id,}) {
   return (
      <Link
       href={`/products/${id}`}
-      className="group block border border-yellow-950/30 hover:border-neutral-300 transition-colors duration-200"
+      className="group block border border-yellow-950/30 transition-colors duration-200"
     >
       {/* Image */}
       <div className="aspect-3/4 overflow-hidden">

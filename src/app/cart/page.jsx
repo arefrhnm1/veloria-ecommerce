@@ -15,8 +15,8 @@ export default function page() {
     );
 
   return (
-    <div className="max-w-5xl mx-auto p-6 flex flex-col md:flex-row gap-6">
-      <div className="flex-1 flex flex-col gap-4">
+    <div className="max-w-5xl mx-auto p-6 flex flex-col md:flex-row gap-10 mt-20">
+      <div className="flex-1 flex flex-col gap-10">
         {items.map((item) => (
           <CartItem key={item.id} item={item} />
         ))}

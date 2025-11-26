@@ -1,5 +1,6 @@
 "use client";
 
+import { Trash2 } from "lucide-react";
 import { useCartStore } from "../../store/cartStore";
 import QuantitySelector from "../QuantitySelector";
 
@@ -8,25 +9,24 @@ export default function CartItem({ item }) {
 	const updateQuantity = useCartStore((state) => state.updateQuantity);
 
 	return (
-		<div className="flex items-center gap-4 border-b border-gray-200 py-4">
+		<div className="flex items-center gap-4 border border-yellow-950/30 relative p-4">
 			<img
 				src={item.image[0]}
 				alt={item.title}
 				className="w-24 h-24 object-cover rounded-md"
 			/>
 			<div className="flex-1">
-				<h2 className="text-lg font-semibold">{item.title}</h2>
-				<p className="text-gray-500">${item.price}</p>
-
-				<QuantitySelector
-				product={item}
-				/>
+				<h2 className="text-lg font-semibold text-yellow-900/80">
+					{item.title}
+				</h2>
+				<p className="text-green-700/90">${item.price}</p>
 			</div>
+			<QuantitySelector product={item}/>
 			<button
 				onClick={() => removeItem(item.id)}
-				className="text-red-500 font-bold"
+				className="text-red-700 font-bold p-2 absolute -right-5 bg-white hover:bg-rose-50 -top-5 border border-yellow-950/30"
 			>
-				Remove
+				<Trash2 />
 			</button>
 		</div>
 	);

@@ -3,6 +3,8 @@ import React from "react";
 import AddToCartButton from "./AddToCartButton";
 
 export default function ProductCard(p) {
+	console.log(p);
+	
 	return (
 		<Link
 			href={`/products/${p.id}`}

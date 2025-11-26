@@ -30,7 +30,7 @@
     "**/*.mts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/app/products/loading.jsx"  ],
   "exclude": [
     "node_modules"
   ]

@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={poppins.className}>
       <body
-        className='bg-yedllow-50'
+        className='bg-yedllow-50 overflow-x-hidden'
       >
         <Navbar/>
         {children}

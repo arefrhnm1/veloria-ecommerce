@@ -2,11 +2,24 @@
 
 /* Hide scrollbar for Chrome, Safari, Edge */
 ::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 /* Hide scrollbar for Firefox */
-html {
-  scrollbar-width: none;
+html, body {
+	scrollbar-width: none;
+  overflow-x: hidden;
 }
 
+@theme {
+	--color-borderColor: oklch(55.4% 0.135 66.442);
+}
+
+@layer components {
+	.nav {
+		@apply border-b-2 border-yellow-700 px-12 py-8 sticky inset-0 z-10 bg-white/90  backdrop-blur-xl;
+	}
+	.nav-items {
+		@apply container mx-auto flex md:gap-10 gap-6 justify-between items-center md:items-baseline;
+	}
+}

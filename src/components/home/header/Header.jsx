@@ -41,9 +41,10 @@ export default function Header() {
 			autoplay={{ delay: 1000 }}
 			className="w-full h-[calc(100vh-var(--navbar-height))] "
 		>
+			{/* desktop background image */}
 			<div
 				slot="container-start"
-				className="absolute left-0 top-0 w-[130%] h-full bg-center"
+				className="hidden md:block absolute left-0 top-0 w-[130%] h-full bg-center"
 				style={{
 					backgroundImage:
 						"url(https://images.unsplash.com/photo-1681337150861-717596b6ffd4?q=80&w=1175&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
@@ -52,6 +53,21 @@ export default function Header() {
 			>
 				<div className="bg-yellow-950/60 absolute z-10 inset-0"></div>
 			</div>
+
+			{/* mobile background image */}
+			<div
+				slot="container-start"
+				className="block md:hidden absolute left-0 top-0 w-[130%] h-full bg-cover"
+				style={{
+					backgroundImage:
+						"url(https://i.pinimg.com/1200x/2d/95/ee/2d95eebc9203c716f078b468b7744e47.jpg)",
+				}}
+				data-swiper-parallax="-23%"
+			>
+				<div className="bg-yellow-950/80 absolute z-10 inset-0"></div>
+			</div>
+
+			
 
 			{/* scroll icon */}
 			<div className="text-white/70 grid justify-items-center  absolute bottom-25 left-1/2 -translate-x-1/2">

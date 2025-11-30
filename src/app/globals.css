@@ -6,9 +6,10 @@
 }
 
 /* Hide scrollbar for Firefox */
-html, body {
+html,
+body {
 	scrollbar-width: none;
-  overflow-x: hidden;
+	overflow-x: hidden;
 }
 
 @theme {

@@ -10,8 +10,9 @@ import {
 import { useCartStore } from "../store/cartStore";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useState } from "react";
-import { useAutoCloseOnDesktop } from "../hooks/useAutoCloseOnDesktop";
+import React, { useRef, useState } from "react";
+import { useMeasureNavbarHeight } from "@/hooks/useMeasureNavbarHeight";
+import { useAutoCloseOnDesktop } from "@/hooks/useAutoCloseOnDesktop";
 
 const links = [
 	{
@@ -40,9 +41,13 @@ export default function Navbar() {
 	// close menu on desktop
 	useAutoCloseOnDesktop(() => setOpen(false));
 
+	// navbar height
+	const navRef = useRef(null);
+	useMeasureNavbarHeight(navRef);
+
 	return (
 		// nav
-		<div className="nav">
+		<nav className="nav" ref={navRef}>
 			{/* nav items */}
 			<div className="nav-items">
 				{/* logo */}
@@ -101,14 +106,17 @@ export default function Navbar() {
 				/>
 				<ul className="">
 					{links.map((i) => (
-						<li onClick={() => setOpen(false)} className="mb-3 pb-3 not-last:border-b border-yellow-700/30">
+						<li
+							key={i.title}
+							onClick={() => setOpen(false)}
+							className="mb-3 pb-3 not-last:border-b border-yellow-700/30"
+						>
 							<Link
 								className={`items-baseline gap-3 font-medium flex ${
 									pathname == i.href
 										? "text-yellow-700"
 										: "text-yellow-700/50"
 								} `}
-								key={i.title}
 								href={i.href}
 							>
 								{i.icon}
@@ -118,6 +126,6 @@ export default function Navbar() {
 					))}
 				</ul>
 			</div>
-		</div>
+		</nav>
 	);
 }

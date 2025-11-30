@@ -70,7 +70,7 @@ export default function Header() {
 			
 
 			{/* scroll icon */}
-			<div className="text-white/70 grid justify-items-center  absolute bottom-25 left-1/2 -translate-x-1/2">
+			<div className="text-white/70 grid justify-items-center  absolute bottom-35 left-1/2 -translate-x-1/2">
 				<Mouse />
 				<span>Scroll</span>
 				<MoveDown className="animate-bounce mt-5" />

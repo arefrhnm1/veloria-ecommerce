@@ -94,17 +94,22 @@ export default function Navbar() {
 			</div>
 
 			{/* menu div */}
-			<div
+			{/* <div
 				className={`fixed top-0  h-screen w-64 bg-white shadow-2xl text-yellow-700 px-12 py-8 transition-all duration-300
 					${open ? "right-0" : "-right-64"}
 					`}
+			> */}
+			<div
+				className={`fixed top-0 right-0 h-screen w-64 bg-white shadow-2xl text-yellow-700 px-12 py-8 transition-all duration-300
+    			${open ? "translate-x-0" : "translate-x-full"}
+  `}
 			>
 				<XIcon
-					className="flex justify-self-end"
+					className="absolute top-9 right-12 z-50 [direction:ltr]"
 					onClick={() => setOpen(false)}
 					size={30}
 				/>
-				<ul className="">
+				<ul className="mt-10">
 					{links.map((i) => (
 						<li
 							key={i.title}

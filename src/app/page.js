@@ -15,9 +15,12 @@ export default async function Home() {
 
   return (
     <div className="bg-white mb-50 grid gap-20">
+      {/* header */}
       <Header/>
       
-      {/* <ProductList products={products}/> */}
+      {/* product list */}
+      
+      <ProductList products={products}/>
     </div>
   );
 }

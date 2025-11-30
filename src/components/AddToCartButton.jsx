@@ -18,7 +18,7 @@ export default function AddToCartButton({ product }) {
 		addItem(product);
 		setAdded(true);
 
-		setTimeout(() => setAdded(false), 800);
+		setTimeout(() => setAdded(false), );
 	};
 
 	const handleRemove = (e) => {
@@ -31,10 +31,10 @@ export default function AddToCartButton({ product }) {
 	return (
 		<button
 			onClick={cartItem ? handleRemove : handleAdd}
-			className={`w-full px-4 py-2 text-white 
+			className={`w-full px-4 py-2 text-white text-xs md:text-sm
 				${cartItem ? "bg-red-700 hover:bg-red-800" : "bg-yellow-800/70 hover:bg-yellow-900"}`}
 		>
-			{cartItem ? "Remove from Cart" : added ? "Added!" : "Add to Cart"}
+			{cartItem ? "Remove from Cart -" : added ? "Added!" : "Add to Cart +"}
 		</button>
 	);
 }

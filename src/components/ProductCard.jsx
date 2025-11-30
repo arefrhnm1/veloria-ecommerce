@@ -12,19 +12,19 @@ export default function ProductCard(p) {
 	return (
 		<Link
 			href={`/products/${p.id}`}
-			className="group grid justify-items-center w-full h-full border border-yellow-950/30 transition-colors duration-200"
+			className="group grid justify-items-center items-center w-full aspect-3/4 h-full border border-yellow-950/30 transition-colors duration-200"
 		>
 			{/* Image */}
-			<div className=" overflow-hidden w-fit aspect-3/4">
+			<div className=" overflow-hidden w-1/2 relative aspect-3/4">
 				<img
 					src={p.image}
 					alt={p.title}
-					className="object-cover w-full h-full group-hover:scale-[1.05] transition-transform duration-200"
+					className="object-cover w-full absolute inset-0 h-full group-hover:scale-[1.05] transition-transform duration-200"
 				/>
 			</div>
 
 			{/* Info */}
-			<div className="px-4 py-4 w-full">
+			<div className="px-4 py-4 w-full flex flex-col">
 				<h3 className="md:text-xl text-lg tracking-tight text-yellow-950/80  overflow-hidden text-ellipsis whitespace-nowrap">
 					{p.title}
 				</h3>

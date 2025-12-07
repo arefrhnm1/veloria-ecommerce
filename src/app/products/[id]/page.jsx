@@ -2,6 +2,9 @@ import QuantitySelector from "../../../components/QuantitySelector";
 import AddToCartButton from "../../../components/AddToCartButton";
 import React from "react";
 
+const formatMoney = (num) =>
+	num.toLocaleString("en-US", { maximumFractionDigits: 0 });
+
 export default async function page({ params }) {
 	const { id } = await params;
 
@@ -16,37 +19,60 @@ export default async function page({ params }) {
 
 	const p = await res.json();
 
-
 	return (
-		<div className="container mx-auto grid grid-cols-2 w-[90vh] gap-5 mt-20">
-			<div className=" col-span-1 overflow-hidden aspect-3/4">
+		<div className="container mx-auto grid md:grid-cols-2 md:w-[90vh] gap-5 md:mt-20 mt-10 p-5">
+			<div className=" col-span-1 overflow-hidden h-full w-full aspect-3/4">
 				<img
 					className="w-full h-full object-cover border border-yellow-950/30"
 					src={p.image}
 					alt={p.title}
 				/>
 			</div>
-			<div className="h-full w-full col-span-1 flex flex-col justify-between text-yellow-900/50">
-				<div className="grid gap-5">
-					<h2 className="text-4xl text-yellow-900/80">{p.title}</h2>
-					<span>rating : {p.rating} / 5</span>
+			<div className="col-span-1 text-yellow-900/70 grid gap-10">
+				<div className="grid grid-cols-3 gap-3">
+					<div className="col-span-3 text-xl md:text-2xl font-bold">
+						{p.title}
+					</div>
+					<div className="text-green-900/70 font-bold col-span-2 self-center">
+						{formatMoney(p.price)} $
+					</div>
+					<div className=" col-start-3 col-span-1 justify-self-end">
+						<QuantitySelector product={p} />
+					</div>
+					<div className="col-span-3">
+						<AddToCartButton product={p} />
+					</div>
+				</div>
+				<div className="text-yellow-950/30 grid gap-5">
+					<span><span className="font-bold">Rating :</span> {p.rating} / 5</span>
 					<p className="text">{p.description}</p>
 
-					<span>category : {p.category}</span>
-					<span>sizes : {p.sizes.join(" - ")}</span>
-					<span>colors : {p.colors.join(" - ")}</span>
-					<span>Stock : {p.inStock ? "yes" : "no"}</span>
-				</div>
-				<div className="grid gap-5">
-					<div className="flex justify-between">
-						<span>{p.price} $</span>
-						<QuantitySelector
-							product={p}
-						/>
-					</div>
-					<AddToCartButton product={p} />
+					<span><span className="font-bold">Categories :</span> {p.category}</span>
+					<span><span className="font-bold">Sizes :</span> {p.sizes.join(" - ")}</span>
+					<span><span className="font-bold">Colors :</span> {p.colors.join(" - ")}</span>
+					<span><span className="font-bold">Stock :</span> {p.inStock ? "yes" : "no"}</span>
 				</div>
 			</div>
 		</div>
 	);
 }
+
+// <div className="grid gap-5">
+// 					<h2 className="text-4xl text-yellow-900/80">{p.title}</h2>
+// 					<span>rating : {p.rating} / 5</span>
+// 					<p className="text">{p.description}</p>
+
+// 					<span>category : {p.category}</span>
+// 					<span>sizes : {p.sizes.join(" - ")}</span>
+// 					<span>colors : {p.colors.join(" - ")}</span>
+// 					<span>Stock : {p.inStock ? "yes" : "no"}</span>
+// 				</div>
+// 				<div className="grid gap-5">
+// 					<div className="flex justify-between">
+// 						<span>{p.price} $</span>
+// 						<QuantitySelector
+// 							product={p}
+// 						/>
+// 					</div>
+// 					<AddToCartButton product={p} />
+// 				</div>

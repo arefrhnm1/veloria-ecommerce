@@ -64,7 +64,7 @@ export default function CartSummary() {
 						value={code}
 						onChange={(e) => setCode(e.target.value)}
 						placeholder="Enter code"
-						className="flex-1 px-2 py-1 border border-yellow-900/30 bg-transparent outline-none text-yellow-900/80"
+						className="px-2 w-full py-1 border border-yellow-900/30 bg-transparent outline-none text-yellow-900/80"
 					/>
 					<button
 						onClick={applyCode}

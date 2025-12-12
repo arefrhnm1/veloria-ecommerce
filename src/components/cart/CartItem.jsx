@@ -16,10 +16,10 @@ export default function CartItem({ item }) {
 				className="w-24 h-24 object-cover rounded-md"
 			/>
 			<div className="flex-1">
-				<h2 className="text-lg font-semibold text-yellow-900/80">
+				<h2 className="text-sm lg:text-lg font-semibold text-yellow-900/80">
 					{item.title}
 				</h2>
-				<p className="text-green-700/90">${item.price}</p>
+				<p className="text-sm text-green-700/90">${item.price}</p>
 			</div>
 			<QuantitySelector product={item}/>
 			<button

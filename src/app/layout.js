@@ -21,7 +21,10 @@ export default function RootLayout({ children }) {
         className='bg-yedllow-50 overflow-x-hidden'
       >
         <Navbar/>
+        <div className="page-wrapper">
+
         {children}
+        </div>
       </body>
     </html>
   );

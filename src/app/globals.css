@@ -12,6 +12,14 @@ body {
 	overflow-x: hidden;
 }
 
+
+.page-wrapper {
+  padding-top: var(--navbar-height);
+}
+
+
+
+
 @theme {
   --color-borderColor: oklch(55.4% 0.135 66.442);
 
@@ -33,7 +41,7 @@ body {
 
 @layer components {
 	.nav {
-		@apply border-b-2 border-yellow-700 px-12 py-8 sticky inset-0 z-10 bg-white/90  backdrop-blur-xl;
+		@apply border-b-2 border-yellow-700 px-12 py-8 fixed top-0 z-50 right-0 left-0 bg-white/90  backdrop-blur-xl;
 	}
 	.nav-items {
 		@apply container mx-auto flex md:gap-10 gap-6 justify-between items-center md:items-baseline;

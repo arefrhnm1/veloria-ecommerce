@@ -2,17 +2,20 @@
 
 import { useState, useEffect } from "react";
 import axios from "axios";
-
-import SidebarFilters from "../../components/products/SideBarFilter";
-import SortDropdown from "../../components/products/SortDropdown";
-import LoadMoreButton from "../../components/products/LoadMoreButton";
 import ProductCard from "../../components/ProductCard";
 import SearchBox from "../../components/products/SearchBox";
+import { FilterIcon } from "lucide-react";
+import SidebarFilterMobile from "@/components/products/SideBarFilterMobile";
+import SidebarFilters from "@/components/products/SideBarFilter";
+import SortDropdown from "@/components/products/SortDropdown";
 
 export default function ProductsPage() {
 	const [products, setProducts] = useState([]);
 	const [filteredProducts, setFilteredProducts] = useState([]);
 	const [query, setQuery] = useState("");
+
+	// hamber menu state
+	const [open, setOpen] = useState(false);
 
 	const defaultFilters = {
 		category: [],
@@ -95,8 +98,6 @@ export default function ProductsPage() {
 		setFilteredProducts(temp);
 	}, [products, filters, query]);
 
-	
-
 	// CLEAR ALL → سرچ + فیلترها
 	const clearAll = () => {
 		setQuery("");
@@ -113,73 +114,85 @@ export default function ProductsPage() {
 	}
 
 	return (
-		<div className="container mx-auto flex flex-col md:flex-row gap-6 mt-10">
+		<div className="mt-10 container mx-auto px-5">
+			<div
+				className="
+      				grid gap-10
+      				grid-cols-4
+      				grid-rows-[auto_1fr]
 
-			{/* Sidebar (Desktop) */}
-			<aside className="w-full md:w-64 md:block hidden">
-				<SidebarFilters
-				onClear={clearAll}
-					filters={filters}
-					setFilters={setFilters}
-					products={products}
-				/>
-			</aside>
+					// mobile
+	  				[grid-template-areas:'filters_search_search_search''products_products_products_products']
 
-			{/* Main */}
-			<main className="flex-1">
+					// tablet
+					md:[grid-template-areas:'filters_search_search_sort''filters_products_products_products']
 
-				{/* Mobile Top Filters Row */}
-				<div className="flex md:hidden gap-4 overflow-x-auto mb-4">
+	  
+	
+    "
+			>
+				{/* MOBILE FILTER BUTTON — MUST BE OUTSIDE THE GRID */}
+				<button
+					className="md:hidden text-yellow-950/70  [grid-area:filters]"
+					onClick={() => setOpen(true)}
+				>
+					<FilterIcon />
+				</button>
+				{/* mobile: filter */}
+				<div
+					className={`fixed bottom-0 overflow-y-auto z-40 top-[102px] left-0 w-64 bg-yellow-900/95 shadow-2xl text-white px-12 py-8 transition-all duration-300
+    			${open ? "translate-x-0" : "-translate-x-full"}
+  `}
+				>
+					<SidebarFilterMobile
+						onClear={clearAll}
+						filters={filters}
+						setFilters={setFilters}
+						products={products}
+						setOpen={setOpen}
+					/>
+				</div>
+
+
+				{/* DESKTOP FILTERS */}
+				<div className="hidden md:flex [grid-area:filters]">
 					<SidebarFilters
+						onClear={clearAll}
 						filters={filters}
 						setFilters={setFilters}
 						products={products}
 					/>
+				</div>
+
+				<div className="[grid-area:search]">
+					<SearchBox
+						onSearch={(val) => setQuery(val)}
+						value={query}
+						onClear={clearAll}
+					/>
+				</div>
+
+				<div className="hidden md:flex [grid-area:sort] justify-self-end">
 					<SortDropdown
 						sort={filters.sort}
 						setSort={(sort) => setFilters({ ...filters, sort })}
 					/>
 				</div>
 
-				{/* Desktop: Search + Sort */}
-				<div className="hidden md:flex justify-between items-center mb-6">
-					<div className="w-64">
-						<SearchBox onSearch={(val) => setQuery(val)} value={query} onClear={clearAll} />
-					</div>
-
-					<div className="flex items-center gap-3">
-						{/* CLEAR ALL BUTTON */}
-						
-
-						<SortDropdown
-							sort={filters.sort}
-							setSort={(sort) => setFilters({ ...filters, sort })}
-						/>
-					</div>
-				</div>
-
-				{/* Search for Mobile */}
-				<div className="md:hidden mb-4">
-					<SearchBox onSearch={(val) => setQuery(val)} value={query} onClear={clearAll} />
-				</div>
-
-				{/* EMPTY STATE */}
-				{filteredProducts.length === 0 ? (
-					<div className="py-20 text-center text-gray-500 text-lg">
-						محصولی یافت نشد
-					</div>
-				) : (
-					<>
-						{/* Products Grid */}
-						<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+				<div className="[grid-area:products]">
+					{filteredProducts.length === 0 ? (
+						<div className="py-20 text-center text-gray-500 text-lg">
+							محصولی یافت نشد
+						</div>
+					) : (
+						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 							{filteredProducts.map((p) => (
 								<ProductCard key={p.id} {...p} />
 							))}
 						</div>
-
-					</>
-				)}
-			</main>
+					)}
+				</div>
+			</div>
 		</div>
 	);
 }

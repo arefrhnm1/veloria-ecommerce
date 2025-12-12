@@ -49,11 +49,11 @@ export default function Navbar() {
 		// nav
 		<nav className="nav" ref={navRef}>
 			{/* nav items */}
-			<div className="nav-items">
+			<div className=" nav-items">
 				{/* logo */}
-				<h3 className="md:text-6xl text-3xl md:order-1 order-2 font-bold text-yellow-700">
+				<Link href='/' className="md:text-6xl text-3xl md:order-1 order-2 font-bold text-yellow-700">
 					VELORIA
-				</h3>
+				</Link>
 				<div className="md:order-2 flex gap-10">
 					{/* links */}
 					{links.map((i) => (
@@ -93,19 +93,13 @@ export default function Navbar() {
 				/>
 			</div>
 
-			{/* menu div */}
-			{/* <div
-				className={`fixed top-0  h-screen w-64 bg-white shadow-2xl text-yellow-700 px-12 py-8 transition-all duration-300
-					${open ? "right-0" : "-right-64"}
-					`}
-			> */}
 			<div
-				className={`fixed top-0 right-0 h-screen w-64 bg-white shadow-2xl text-yellow-700 px-12 py-8 transition-all duration-300
+				className={`fixed top-0 right-0 h-screen w-64 z-50 bg-white shadow-2xl text-yellow-700 px-12 py-8 transition-all duration-300
     			${open ? "translate-x-0" : "translate-x-full"}
   `}
 			>
 				<XIcon
-					className="absolute top-9 right-12 z-50 [direction:ltr]"
+					className="absolute top-9 right-12 [direction:ltr]"
 					onClick={() => setOpen(false)}
 					size={30}
 				/>

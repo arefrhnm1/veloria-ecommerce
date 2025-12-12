@@ -20,7 +20,7 @@ export default async function page({ params }) {
 	const p = await res.json();
 
 	return (
-		<div className="container mx-auto grid md:grid-cols-2 md:w-[90vh] gap-5 md:mt-20 mt-10 p-5">
+		<div className="container mx-auto grid md:grid-cols-2 md:w-[90vh] gap-5 px-5">
 			<div className=" col-span-1 overflow-hidden h-full w-full aspect-3/4">
 				<img
 					className="w-full h-full object-cover border border-yellow-950/30"
@@ -56,23 +56,3 @@ export default async function page({ params }) {
 		</div>
 	);
 }
-
-// <div className="grid gap-5">
-// 					<h2 className="text-4xl text-yellow-900/80">{p.title}</h2>
-// 					<span>rating : {p.rating} / 5</span>
-// 					<p className="text">{p.description}</p>
-
-// 					<span>category : {p.category}</span>
-// 					<span>sizes : {p.sizes.join(" - ")}</span>
-// 					<span>colors : {p.colors.join(" - ")}</span>
-// 					<span>Stock : {p.inStock ? "yes" : "no"}</span>
-// 				</div>
-// 				<div className="grid gap-5">
-// 					<div className="flex justify-between">
-// 						<span>{p.price} $</span>
-// 						<QuantitySelector
-// 							product={p}
-// 						/>
-// 					</div>
-// 					<AddToCartButton product={p} />
-// 				</div>

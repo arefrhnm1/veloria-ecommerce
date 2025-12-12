@@ -1,12 +1,13 @@
 "use client";
 
-import { FunnelX, ListFilter } from "lucide-react";
+import { FunnelX, XIcon } from "lucide-react";
 
-export default function SidebarFilters({
+export default function SidebarFilterMobile({
 	filters,
 	setFilters,
 	products,
 	onClear,
+    setOpen
 }) {
 	// استخراج دسته‌ها، رنگ‌ها و سایزهای موجود
 	const categories = [...new Set(products.map((p) => p.category))];
@@ -29,24 +30,24 @@ export default function SidebarFilters({
 	};
 
 	return (
-		<div className="lg:px-10 px-5 py-8 w-full grid gap-10 h-min border border-yellow-950/30 mb-4 md:mb-0">
-			<div className="flex justify-between">
-				<h2 className="font-extrabold mb-4 text-yellow-900/50 ">
-					Filters
-				</h2>
+		<div className="pt-3 grid">
+			<div className="flex mb-7 justify-between items-center">
 				<FunnelX
 					onClick={() => {
 						onClear();
 					}}
-					className="text-yellow-900/50"
 				/>
+                <XIcon
+						onClick={() => setOpen(false)}
+						size={30}
+					/>
 			</div>
 
 			{/* Category */}
-			<div className="mb-3">
-				<h3 className="font-bold text-2xl mb-5 text-yellow-800/50">Category</h3>
+			<div className="mb-5 pb-5 border-b border-white/50 ">
+				<h3 className="text-white/80 text-2xl mb-5">Category</h3>
 				{categories.map((cat) => (
-					<label key={cat} className="block text-yellow-900/60">
+					<label key={cat} className="block text-white/50">
 						<input
 							type="checkbox"
 							checked={filters.category.includes(cat)}
@@ -59,10 +60,10 @@ export default function SidebarFilters({
 			</div>
 
 			{/* Colors */}
-			<div className="mb-3">
-				<h3 className="font-bold text-2xl mb-5 text-yellow-800/50">Colors</h3>
+			<div className="mb-5 pb-5 border-b border-white/50 ">
+				<h3 className="text-white/80 text-2xl  mb-5">Colors</h3>
 				{colors.map((color) => (
-					<label key={color} className="block text-yellow-900/60">
+					<label key={color} className="block text-white/50">
 						<input
 							type="checkbox"
 							checked={filters.colors.includes(color)}
@@ -75,10 +76,10 @@ export default function SidebarFilters({
 			</div>
 
 			{/* Sizes */}
-			<div className="mb-3">
-				<h3 className="font-bold text-2xl mb-5 text-yellow-800/50">Sizes</h3>
+			<div className="mb-5 pb-5 border-b border-white/50 ">
+				<h3 className="text-white/80 text-2xl  mb-5">Sizes</h3>
 				{sizes.map((size) => (
-					<label key={size} className="block text-yellow-900/60">
+					<label key={size} className="block text-white/50">
 						<input
 							type="checkbox"
 							checked={filters.sizes.includes(size)}
@@ -91,8 +92,8 @@ export default function SidebarFilters({
 			</div>
 
 			{/* InStock */}
-			<div className="mb-3">
-				<label className="font-bold text-xl text-yellow-800/50">
+			<div className="">
+				<label className="text-white/80 text-xl ">
 					<input
 						type="checkbox"
 						checked={filters.inStock}

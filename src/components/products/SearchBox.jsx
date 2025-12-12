@@ -31,7 +31,7 @@ export default function SearchBox({ onSearch, value, onClear }) {
 				onClick={triggerSearch}
 				className="absolute right-3 top-2.5"
 			>
-				<Search size={18} className="text-yellow-800" />
+				<Search size={20} className="text-yellow-800/60" />
 			</button>
 		</div>
 	);

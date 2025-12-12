@@ -15,8 +15,7 @@ export default function page() {
     );
 
   return (
-    <div className=" container mx-auto px-8fix(cart): resolve responsiveness issues on cart page
- items-center justify-items-center grid grid-cols-7 pt-20 gap-10">
+    <div className=" container mx-auto px-8 items-center justify-items-center grid grid-cols-7 pt-20 gap-10">
       <div className="col-span-7 lg:col-span-4 flex flex-col gap-10">
         {items.map((item) => (
           <CartItem key={item.id} item={item} />

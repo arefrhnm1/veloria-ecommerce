@@ -20,7 +20,7 @@ export default async function page({ params }) {
 	const p = await res.json();
 
 	return (
-		<div className="container mx-auto grid md:grid-cols-2 md:w-[90vh] gap-5 px-5">
+		<div className="container mx-auto grid md:grid-cols-2 md:w-[90vh] md:pt-20 pt-10 gap-5 px-5">
 			<div className=" col-span-1 overflow-hidden h-full w-full aspect-3/4">
 				<img
 					className="w-full h-full object-cover border border-yellow-950/30"

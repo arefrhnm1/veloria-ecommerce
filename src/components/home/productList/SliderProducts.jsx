@@ -12,7 +12,7 @@ import { FreeMode, } from 'swiper/modules';
 
 
 export default function SliderProudcts({ products }) {
-	if (!products || !products.length) return <p>محصولی یافت نشد</p>;
+	if (!products || !products.length) return <p>No products found.</p>;
 
 	return (
 		<Swiper

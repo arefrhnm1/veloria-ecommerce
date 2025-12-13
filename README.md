@@ -1,4 +1,4 @@
-# Voloria Luxe
+# Veloria Luxe
 
 A **frontend-focused e‑commerce MVP** built with modern web technologies to showcase real‑world frontend skills, clean architecture, and attention to responsive, luxury‑oriented UI.
 
@@ -21,9 +21,21 @@ Rather than being a production-ready shop, Voloria Luxe focuses on **frontend ex
 ## 🔗 Links
 
 * **Live Demo:** *https://veloria-ecommerce.vercel.app/*
-* **Screenshots:** *Included*
+<h3 align="center">📱 Screenshots</h3>
 
----
+<br/>
+
+<p align="center">
+ <img width="180" hspace="10" alt="iPhone-13-PRO-veloria-ecommerce vercel app (3)" src="https://github.com/user-attachments/assets/033c6a41-00ae-4134-be8d-2e55a6949065" />
+<img width="180" hspace="10" alt="iPhone-13-PRO-veloria-ecommerce vercel app (5)" src="https://github.com/user-attachments/assets/82f26160-795e-4824-a63a-54e3863cf001" />
+<img width="180" hspace="10" alt="iPhone-13-PRO-veloria-ecommerce vercel app" src="https://github.com/user-attachments/assets/2ca4634b-cb57-4c65-af85-92b315af6d4b" />
+<img width="180" hspace="10" alt="iPhone-13-PRO-veloria-ecommerce vercel app (2)" src="https://github.com/user-attachments/assets/299464ad-858e-42b6-bd34-045f6ca899f9" />
+
+</p>
+
+
+https://github.com/user-attachments/assets/7e1ef662-ac44-4ef5-928c-1d98fa525181
+
 
 ## ✨ Features
 
